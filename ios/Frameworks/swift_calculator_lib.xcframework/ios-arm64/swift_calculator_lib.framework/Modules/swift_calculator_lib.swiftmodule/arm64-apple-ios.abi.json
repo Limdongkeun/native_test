@@ -1,0 +1,86 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "swift_calculator_lib",
+    "printedName": "swift_calculator_lib",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "swift_calculator_lib",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SwiftCalculator",
+        "printedName": "SwiftCalculator",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "add",
+            "printedName": "add(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:20swift_calculator_lib15SwiftCalculatorV3addyS2i_SitFZ",
+            "mangledName": "$s20swift_calculator_lib15SwiftCalculatorV3addyS2i_SitFZ",
+            "moduleName": "swift_calculator_lib",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:20swift_calculator_lib15SwiftCalculatorV",
+        "mangledName": "$s20swift_calculator_lib15SwiftCalculatorV",
+        "moduleName": "swift_calculator_lib",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}
