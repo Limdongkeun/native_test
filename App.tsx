@@ -17,33 +17,43 @@ import {
   NativeModules,
 } from 'react-native';
 
+// === Native RPC facade ===
+type RPC = { invoke(method: string, args: string): Promise<string>; methods(): Promise<string> };
+const { AddModule } = NativeModules as { AddModule: RPC };
+
+async function call<T = unknown>(method: string, params: any): Promise<T> {
+  const raw = await AddModule.invoke(method, JSON.stringify(params ?? {}));
+  const parsed = JSON.parse(raw);
+  if (!parsed?.ok) throw new Error(parsed?.message ?? 'invoke failed');
+  return parsed.result as T;
+}
+// =====================================
+
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
   const [a, setA] = useState<string>('');
   const [b, setB] = useState<string>('');
   const [result, setResult] = useState<string | null>(null);
 
-  const onAdd = async () => {
+  const runOp = async (op: 'calc.add' | 'calc.multiply' | 'calc.divide' | 'calc.modulo') => {
     const aNum = Number(a);
     const bNum = Number(b);
-
     if (Number.isNaN(aNum) || Number.isNaN(bNum)) {
       Alert.alert('입력 오류', '숫자를 입력해 주세요.');
       return;
     }
-    console.log('NativeModules keys:', Object.keys(NativeModules));
     try {
-      const { AddModule } = NativeModules as any;
-      if (AddModule?.add) {
-        const msg: string = await AddModule.add(aNum, bNum);
-        setResult(`Native: ${msg}`);
-      } else {
-        setResult(`JS 경로(네이티브 모듈 없음): ${aNum + bNum}`);
-      }
+      const value = await call<number>(op, { a: aNum, b: bNum });
+      setResult(String(value));
     } catch (e: any) {
       Alert.alert('에러', e?.message ?? String(e));
     }
   };
+
+  const onAdd = () => runOp('calc.add');
+  const onMultiply = () => runOp('calc.multiply');
+  const onDivide = () => runOp('calc.divide');
+  const onModulo = () => runOp('calc.modulo');
 
   return (
     <SafeAreaView style={[styles.container, isDarkMode && styles.containerDark]}>
@@ -69,8 +79,11 @@ function App() {
         />
       </View>
 
-      <View style={styles.buttonWrap}>
-        <Button title="더하기" onPress={onAdd} />
+      <View style={styles.buttonsRow}>
+        <View style={styles.buttonWrap}><Button title="더하기" onPress={onAdd} /></View>
+        <View style={styles.buttonWrap}><Button title="곱하기" onPress={onMultiply} /></View>
+        <View style={styles.buttonWrap}><Button title="나누기" onPress={onDivide} /></View>
+        <View style={styles.buttonWrap}><Button title="나머지" onPress={onModulo} /></View>
       </View>
 
       <Text style={styles.resultLabel}>결과</Text>
@@ -114,9 +127,14 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '700',
   },
-  buttonWrap: {
-    alignSelf: 'flex-start',
+  buttonsRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 12,
     marginBottom: 24,
+  },
+  buttonWrap: {
+    minWidth: 110,
   },
   resultLabel: {
     fontSize: 16,
