@@ -11,7 +11,7 @@
 		2238118C2E5D6E83003AF726 /* native_calculator/AddModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2238118B2E5D6E83003AF726 /* native_calculator/AddModule.swift */; };
 		2242340A2E5D848C005C3BDA /* static_lib.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224234092E5D848C005C3BDA /* static_lib.xcframework */; };
 		224234192E5D89F1005C3BDA /* AddModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 224234182E5D89F1005C3BDA /* AddModule.m */; };
-		224234342E5DA9D1005C3BDA /* static_lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224234332E5DA9D1005C3BDA /* static_lib.swift */; };
+		22F02CE72E66A0CF00BEDC03 /* static_lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224234332E5DA9D1005C3BDA /* static_lib.swift */; };
 		61ADEA169E5E79CB442D12C8 /* libPods-native_calculator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CB6A6E7CBDA956EE022CA1 /* libPods-native_calculator.a */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -19,33 +19,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2275664B2E5D53C200F315F1 /* PBXContainerItemProxy */ = {
+		22F02CEC2E66A10800BEDC03 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 227566462E5D53C200F315F1 /* swift_calculator_lib.xcodeproj */;
+			containerPortal = 22F02CE82E66A10800BEDC03 /* static_lib.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 2275662C2E5D4B3200F315F1;
-			remoteInfo = swift_calculator_lib;
-		};
-		2275664D2E5D53C200F315F1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 227566462E5D53C200F315F1 /* swift_calculator_lib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 227566372E5D4B3200F315F1;
-			remoteInfo = swift_calculator_libTests;
-		};
-		22AD29B92E5D5C2100637A59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 22AD29B42E5D5C2100637A59 /* swift_calculator_lib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2275662C2E5D4B3200F315F1;
-			remoteInfo = swift_calculator_lib;
-		};
-		22AD29BB2E5D5C2100637A59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 22AD29B42E5D5C2100637A59 /* swift_calculator_lib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 227566372E5D4B3200F315F1;
-			remoteInfo = swift_calculator_libTests;
+			remoteGlobalIDString = 22381B6A2E5D81F100CD2791;
+			remoteInfo = static_lib;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -58,9 +37,8 @@
 		224234092E5D848C005C3BDA /* static_lib.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = static_lib.xcframework; path = "../../static_lib/build-static/static_lib.xcframework"; sourceTree = "<group>"; };
 		224234182E5D89F1005C3BDA /* AddModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AddModule.m; path = native_calculator/AddModule.m; sourceTree = "<group>"; };
 		224234332E5DA9D1005C3BDA /* static_lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = static_lib.swift; path = ../../static_lib/static_lib/static_lib.swift; sourceTree = "<group>"; };
-		227566462E5D53C200F315F1 /* swift_calculator_lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = swift_calculator_lib.xcodeproj; path = ../../swift_calculator_lib/swift_calculator_lib.xcodeproj; sourceTree = "<group>"; };
-		22AD29B42E5D5C2100637A59 /* swift_calculator_lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = swift_calculator_lib.xcodeproj; path = Frameworks/swift_calculator_lib.xcodeproj; sourceTree = "<group>"; };
 		22AD29BD2E5D5CAD00637A59 /* swift_calculator_lib.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = swift_calculator_lib.xcframework; path = Frameworks/swift_calculator_lib.xcframework; sourceTree = "<group>"; };
+		22F02CE82E66A10800BEDC03 /* static_lib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = static_lib.xcodeproj; path = ../../static_lib/static_lib.xcodeproj; sourceTree = "<group>"; };
 		25B60BAE9A7E99C29E2E34F7 /* Pods-native_calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-native_calculator.release.xcconfig"; path = "Target Support Files/Pods-native_calculator/Pods-native_calculator.release.xcconfig"; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = native_calculator/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = native_calculator/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -94,20 +72,10 @@
 			name = native_calculator;
 			sourceTree = "<group>";
 		};
-		227566472E5D53C200F315F1 /* Products */ = {
+		22F02CE92E66A10800BEDC03 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2275664C2E5D53C200F315F1 /* swift_calculator_lib.framework */,
-				2275664E2E5D53C200F315F1 /* swift_calculator_libTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		22AD29B52E5D5C2100637A59 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				22AD29BA2E5D5C2100637A59 /* swift_calculator_lib.framework */,
-				22AD29BC2E5D5C2100637A59 /* swift_calculator_libTests.xctest */,
+				22F02CED2E66A10800BEDC03 /* libstatic_lib.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,10 +83,9 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22F02CE82E66A10800BEDC03 /* static_lib.xcodeproj */,
 				224234092E5D848C005C3BDA /* static_lib.xcframework */,
 				22AD29BD2E5D5CAD00637A59 /* swift_calculator_lib.xcframework */,
-				227566462E5D53C200F315F1 /* swift_calculator_lib.xcodeproj */,
-				22AD29B42E5D5C2100637A59 /* swift_calculator_lib.xcodeproj */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				90CB6A6E7CBDA956EE022CA1 /* libPods-native_calculator.a */,
 			);
@@ -217,12 +184,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 22AD29B52E5D5C2100637A59 /* Products */;
-					ProjectRef = 22AD29B42E5D5C2100637A59 /* swift_calculator_lib.xcodeproj */;
-				},
-				{
-					ProductGroup = 227566472E5D53C200F315F1 /* Products */;
-					ProjectRef = 227566462E5D53C200F315F1 /* swift_calculator_lib.xcodeproj */;
+					ProductGroup = 22F02CE92E66A10800BEDC03 /* Products */;
+					ProjectRef = 22F02CE82E66A10800BEDC03 /* static_lib.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -233,32 +196,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2275664C2E5D53C200F315F1 /* swift_calculator_lib.framework */ = {
+		22F02CED2E66A10800BEDC03 /* libstatic_lib.a */ = {
 			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = swift_calculator_lib.framework;
-			remoteRef = 2275664B2E5D53C200F315F1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2275664E2E5D53C200F315F1 /* swift_calculator_libTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = swift_calculator_libTests.xctest;
-			remoteRef = 2275664D2E5D53C200F315F1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		22AD29BA2E5D5C2100637A59 /* swift_calculator_lib.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = swift_calculator_lib.framework;
-			remoteRef = 22AD29B92E5D5C2100637A59 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		22AD29BC2E5D5C2100637A59 /* swift_calculator_libTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = swift_calculator_libTests.xctest;
-			remoteRef = 22AD29BB2E5D5C2100637A59 /* PBXContainerItemProxy */;
+			fileType = archive.ar;
+			path = libstatic_lib.a;
+			remoteRef = 22F02CEC2E66A10800BEDC03 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -364,8 +306,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				224234342E5DA9D1005C3BDA /* static_lib.swift in Sources */,
 				224234192E5D89F1005C3BDA /* AddModule.m in Sources */,
+				22F02CE72E66A0CF00BEDC03 /* static_lib.swift in Sources */,
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
 				2238118C2E5D6E83003AF726 /* native_calculator/AddModule.swift in Sources */,
 			);
