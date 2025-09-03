@@ -3,6 +3,7 @@
  * Sample React Native App adjusted to call a native Swift module
  */
 
+import AddModule from './src/native/NativeAddModule';
 import React, {useState} from 'react';
 import {
   Alert,
@@ -14,20 +15,9 @@ import {
   TextInput,
   View,
   useColorScheme,
-  NativeModules,
 } from 'react-native';
 
-// === Native RPC facade ===
-type RPC = { invoke(method: string, args: string): Promise<string>; methods(): Promise<string> };
-const { AddModule } = NativeModules as { AddModule: RPC };
-
-async function call<T = unknown>(method: string, params: any): Promise<T> {
-  const raw = await AddModule.invoke(method, JSON.stringify(params ?? {}));
-  const parsed = JSON.parse(raw);
-  if (!parsed?.ok) throw new Error(parsed?.message ?? 'invoke failed');
-  return parsed.result as T;
-}
-// =====================================
+type InvokeResponse = { raw: string; parsed: any };
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -35,7 +25,7 @@ function App() {
   const [b, setB] = useState<string>('');
   const [result, setResult] = useState<string | null>(null);
 
-  const runOp = async (op: 'calc.add' | 'calc.multiply' | 'calc.divide' | 'calc.modulo') => {
+  const runOp = async (op: 'calc.add' | 'calc.multiply' | 'calc.divide' | 'calc.modulo' | 'calc.addDouble') => {
     const aNum = Number(a);
     const bNum = Number(b);
     if (Number.isNaN(aNum) || Number.isNaN(bNum)) {
@@ -43,8 +33,12 @@ function App() {
       return;
     }
     try {
-      const value = await call<number>(op, { a: aNum, b: bNum });
-      setResult(String(value));
+      const res: InvokeResponse = await AddModule.invoke(op, JSON.stringify({ a: aNum, b: bNum }));
+      if (res?.parsed?.ok) {
+        setResult(`Native(Turbo): ${String(res.parsed.result)}`);
+      } else {
+        setResult(`Error: ${JSON.stringify(res)}`);
+      }
     } catch (e: any) {
       Alert.alert('에러', e?.message ?? String(e));
     }
@@ -54,6 +48,8 @@ function App() {
   const onMultiply = () => runOp('calc.multiply');
   const onDivide = () => runOp('calc.divide');
   const onModulo = () => runOp('calc.modulo');
+  const onAddDouble = () => runOp('calc.addDouble');
+
 
   return (
     <SafeAreaView style={[styles.container, isDarkMode && styles.containerDark]}>
@@ -80,10 +76,11 @@ function App() {
       </View>
 
       <View style={styles.buttonsRow}>
-        <View style={styles.buttonWrap}><Button title="더하기" onPress={onAdd} /></View>
-        <View style={styles.buttonWrap}><Button title="곱하기" onPress={onMultiply} /></View>
-        <View style={styles.buttonWrap}><Button title="나누기" onPress={onDivide} /></View>
-        <View style={styles.buttonWrap}><Button title="나머지" onPress={onModulo} /></View>
+        <View style={styles.buttonWrap}><Button title="+더하기+" onPress={onAdd} /></View>
+        <View style={styles.buttonWrap}><Button title="*곱하기*" onPress={onMultiply} /></View>
+        <View style={styles.buttonWrap}><Button title="/나누기/" onPress={onDivide} /></View>
+        <View style={styles.buttonWrap}><Button title="%나머지%" onPress={onModulo} /></View>
+        <View style={styles.buttonWrap}><Button title="두번 더하기" onPress={onAddDouble} /></View>
       </View>
 
       <Text style={styles.resultLabel}>결과</Text>
